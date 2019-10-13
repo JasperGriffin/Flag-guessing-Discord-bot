@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -11,8 +10,14 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class FlagGuesser extends ListenerAdapter {
-	
 
+	Random rand = new Random();
+	String[] canvas = new String[54];
+	String[] newCanvas = new String[63];
+	HashSet<Integer> set = new HashSet<Integer>();
+	GameData gd = new GameData();
+	int counter = 0;
+	
 	String[] countries = { "France", "Germany", "Bulgaria", "Ukraine", "Belgium", "Sweden", "Denmark", "Finland",
 			"Estonia", "Italy", "Poland", "Indonesia", "Monaco", "Austria", "Netherlands", "Russia", "Ireland",
 			"Bangladesh", "Greece", "Trinidad and Tobago", "Greenland", "Palau", "Armenia", "Bahrain", "Benin",
@@ -44,13 +49,6 @@ public class FlagGuesser extends ListenerAdapter {
 			":flag_sv:", ":flag_gh:", ":flag_ch:", ":flag_dj:", ":flag_ir:", ":flag_cz:", ":flag_mx:", ":flag_sy:",
 			":flag_kp:", ":flag_ph:", ":flag_sr:", ":flag_tz:", ":flag_bf:", ":flag_gt:", ":flag_sn:", ":flag_cu:",
 			":flag_ht:", ":flag_cg:", ":flag_rw:", ":flag_zw:", ":flag_sd:", ":flag_jo:"};
-
-	Random rand = new Random();
-	String[] canvas = new String[54];
-	String[] newCanvas = new String[63];
-	HashSet<Integer> set = new HashSet<Integer>();
-	GameData gd = new GameData();
-	int counter = 0;
 
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
